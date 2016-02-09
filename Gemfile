@@ -13,15 +13,22 @@ gem 'haml'
 gem 'simple_form'
 gem 'therubyracer'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
+gem 'web-console', '~> 2.0', group: :development
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+#add gems
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
 end
 
 group :test do
 # add gems
   gem 'sqlite3'
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 

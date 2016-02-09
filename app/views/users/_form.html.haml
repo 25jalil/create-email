@@ -1,0 +1,8 @@
+= simple_form_for @user do |f|
+  = f.input :name, required: false
+  = f.input :email, required: false
+  = f.input :password
+  = f.input :password_confirmation, label: "Confirmation"
+  = f.submit "Submit", class: "btn btn-large btn-primary"
+
+
