@@ -21,6 +21,7 @@ group :development, :test do
   gem 'spring'
 #add gems
   gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-its'
   gem 'factory_girl_rails'
 end
 
