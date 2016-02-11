@@ -4,13 +4,6 @@ describe "User pages" do
 
   subject { page }
 
-  describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
-
-    it { should have_content(user.name) }
-  end
-
   describe "signup page" do
 
     before { visit signup_path }
@@ -40,8 +33,7 @@ describe "User pages" do
         let(:user) { User.find_by(email: 'user@example.com') }
 
         it { should have_link('Sign out') }
-        it { should have_title(user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_selector('div.alert.alert-success.fade.in', text: 'Registration Succesful') }
       end
     end
   end

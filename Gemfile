@@ -20,9 +20,10 @@ group :development, :test do
   gem 'byebug'
   gem 'spring'
 #add gems
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails'
   gem 'rspec-its'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :test do
