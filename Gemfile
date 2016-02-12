@@ -15,6 +15,8 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'web-console', '~> 2.0', group: :development
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug'
