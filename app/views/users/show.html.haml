@@ -3,3 +3,11 @@
     %section
       %h1
         = @user.name
+
+    %h2 Write a message:
+    = simple_form_for :conversation, { url: conversations_path } do |f|
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :sender_id, value: current_user.id
+      = f.hidden_field :recipient_id, value: @user.id
+      = f.input :body, as: :text, label: false, required: false
+      = f.submit "Submit"

@@ -1,13 +1,11 @@
 %ul
-  - number = 0
   - @users.each do |user|
     - if !current_user?(user)
-      - number +=1
       %div.link.row.clearfix
         %h4
-          = link_to "#{number} #{user.name}", user
+          = link_to "#{user.name}", user
         %div.btn-group
-          = link_to "Send Message", "#", class: "btn btn-primary", "data-sid" => current_user.id, "data-rip" => user.id
+          / = link_to "Send Message", "#", class: "btn btn-primary", "data-sid" => current_user.id, "data-rip" => user.id
           - if current_user.admin? && !current_user?(user)
             = link_to "Delete user only for admin", user, class: "btn btn-danger", method: :delete, data: { confirm: "You sure?" }
 = will_paginate
