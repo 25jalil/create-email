@@ -6,8 +6,17 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/header'
     .container
+      = render 'layouts/header'
       = render 'layouts/flash'
-      = yield
-
+      - if signed_in?
+        .container-fluid
+          .row-fluid
+            .col-sm-4.col-md-3
+              .nav.nav-sidebar
+                = render 'layouts/left_sidebar'
+            .col-sm-8.col-md-9
+              .row.placeholders
+                = yield
+      - else
+        = yield

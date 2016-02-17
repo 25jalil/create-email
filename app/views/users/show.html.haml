@@ -1,8 +1,10 @@
 .row
   %aside.span4
     %section
-      %h1
-        = @user.name
+      %h1= @user.name
+      %h2= @user.email
+      -if current_user.admin?
+        = link_to "edit user to admin", edit_user_path(@user), class: "btn-group btn btn-danger"
       - if !current_user?(@user)
         %h2 Write a message:
         = simple_form_for :conversation, { url: conversations_path } do |f|
