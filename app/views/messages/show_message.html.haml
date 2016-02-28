@@ -1,0 +1,7 @@
+- if @message.user == current_user
+  %h1= "The message was sent #{ @message.user.name }"
+- else
+  %h1= "Message received from #{ @message.user.name }"
+%h3= @message.title
+%h5= @message.body
+%h5= time_ago_in_words(@message.created_at)

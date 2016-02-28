@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   ##################association#################
   has_many :conversations, foreign_key: :sender_id
-  has_many :messages, foreign_key: :sender_id
+  has_many :messages
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

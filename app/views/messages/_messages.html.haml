@@ -1,0 +1,6 @@
+- messages.each do |message|
+  %tr
+    %td= link_to "#{message.user.name}", show_message_path(message_id: message)
+    %td= message.title
+    %td= time_ago_in_words(message.created_at)
+
