@@ -25,9 +25,9 @@ class Message < ActiveRecord::Base
   end
 
   scope :show_message_model, -> (message) do
-    includes(:user)
-    .select('messages.id, messages.title, messages.body, messages.created_at')
-    .joins(:user)
+    includes(:conversation)
+    .select('messages.title, messages.body, messages.created_at, messages.conversation_id')
+    .joins(:conversation)
     .find_by_id(message)
   end
 end
