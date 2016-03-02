@@ -1,6 +1,10 @@
 class ConversationsController < ApplicationController
 	before_action :signed_in_user
 
+	def new
+		@users = User.all
+	end
+
 	def create
 		if Conversation.between(current_user.id, params[:conversation][:recipient_id]).present?
 			conversation = Conversation.between(current_user.id, params[:conversation][:recipient_id]).first
@@ -20,7 +24,7 @@ class ConversationsController < ApplicationController
 			else
 				render 'home_pages/home'
 			end
-		end
+    end
 	end
 
 	private

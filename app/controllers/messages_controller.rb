@@ -21,4 +21,5 @@ class MessagesController < ApplicationController
   def show_message
     @message = Message.show_message_model(params[:message_id])
   end
+
 end
