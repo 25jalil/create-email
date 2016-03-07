@@ -8,6 +8,7 @@ class Message < ActiveRecord::Base
   scope :all_mails_model, -> (user) do
     includes(:user, :conversation)
     .joins(:conversation)
+    .order(created_at: :desc)
     .where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
   end
 
@@ -15,6 +16,7 @@ class Message < ActiveRecord::Base
     includes(:user)
     .where(sender_id: user)
     .joins(:conversation)
+    .order(created_at: :desc)
     .where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
   end
 
@@ -22,6 +24,7 @@ class Message < ActiveRecord::Base
     includes(:user)
     .where.not(sender_id: user)
     .joins(:conversation)
+    .order(created_at: :desc)
     .where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
   end
 
