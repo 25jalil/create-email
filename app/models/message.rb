@@ -2,6 +2,7 @@ class Message < ActiveRecord::Base
   belongs_to :conversation
   belongs_to :user, foreign_key: :sender_id
 
+  mount_uploader :attachment
   validates_presence_of :title, :body, :conversation_id, :sender_id
 
   scope :all_mails_model, -> (user) do
@@ -26,7 +27,7 @@ class Message < ActiveRecord::Base
 
   scope :show_message_model, -> (message) do
     includes(:conversation)
-    .select('messages.title, messages.body, messages.created_at, messages.conversation_id')
+    .select('messages.title, messages.body, messages.created_at, messages.attachment, messages.conversation_id')
     .joins(:conversation)
     .find_by_id(message)
   end

@@ -17,6 +17,7 @@ gem 'bcrypt-ruby'
 gem 'web-console', '~> 2.0', group: :development
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'carrierwave', '~> 0.9'
 
 group :development, :test do
   gem 'byebug'

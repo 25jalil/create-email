@@ -2,6 +2,7 @@
   %h1= "Sent to the #{ User.find_by_id(@message.conversation.recipient_id).name }"
 - else
   %h1= "Obtained from the #{ @message.user.name }"
+= link_to "Download Resume", @message.attachment_url
 %h3= @message.title
 %h5= @message.body
 %h5= time_ago_in_words(@message.created_at)

@@ -2,4 +2,5 @@
   = f.input :recipient_id, collection: @users, label: " Select user", required: false, hint: "The field can not be blank"
   = f.input :title, as: :string, label: false, placeholder: "Title", required: false
   = f.input :body, as: :text, label: false, placeholder: "Text", required: false
+  = f.input :attachment, as: :file, label: "File", required: false
   = f.submit "Submit"
